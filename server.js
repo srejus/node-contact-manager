@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const contactRouter = require('./routes/contactRoute');
 const userRouter = require('./routes/userRoute');
+const homeRouter = require('./routes/homeRoute');
 
 const app = express()
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(express.json());
 // app.use(errorHandler)
 app.use('/api/contacts', contactRouter);
 app.use('/api/users',userRouter);
+app.use("/api", homeRouter);
 
 
 app.listen(process.env.PORT, () => {
